@@ -1,0 +1,10 @@
+/**
+*
+* overrides the settings under ./node_modules/foundation-sites/scss/settings
+*
+* NOTE: by overriding them instead of importing all and altering, you can update
+* foundation via npm without having to redo all of your settings
+*
+**/
+
+$body-background: $white;
