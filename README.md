@@ -1,7 +1,7 @@
 # What is this?
 ------
 
-Foundation 6 compiled using webpack and working with browser-sync and .php files, instead of the usual gulp + 500 plugins + webpack setup.
+Foundation 6 compiled using webpack and working with browser-sync and .php files, instead of the usual gulp + 500 plugins + webpack setup that pretends you just write code with .html files.
 
 This solves a few problems from the [setup built into Foundation Zurb template](https://github.com/zurb/foundation-zurb-template):
 
@@ -26,6 +26,8 @@ It's recommended that you use:
 
 - NPM version 5.3.0 (or higher) 
 - Node.js version 8.2.1 (or higher)
+
+This is also assuming you can run a webserver locally on your machine, and run .php files. 
 
 Run the following commands:
 
