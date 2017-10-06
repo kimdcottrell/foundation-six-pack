@@ -8,12 +8,12 @@ var isProd = process.env.NODE_ENV === 'production'; // true of false
 
 module.exports = {
   entry: {
-    app: './src/app.js',
-    contact: './src/contact.js'
+    app: './src/js/app.js',
+    contact: './src/js/pages/contact.js'
   },
   output: {
     path: path.resolve(__dirname, 'assets'),
-    filename: 'js/[name].[hash].js'
+    filename: '[name].[hash].js'
     //use [chunkhash] for prod config, app.[hash].js for dev
   },
   module: {
@@ -36,6 +36,7 @@ module.exports = {
                 loader: "sass-loader",
                 options: {
                   includePaths: [
+                    path.resolve('./src/scss/app.scss'),
                     path.resolve('./node_modules/foundation-sites/scss'),
                     path.resolve('./node_modules/foundation-sites/scss/settings'),
                     path.resolve('./node_modules/motion-ui/src'),
@@ -61,7 +62,7 @@ module.exports = {
   plugins: [
     new ManifestPlugin(),
     new ExtractTextPlugin({
-      filename: 'css/app.[hash].css',
+      filename: 'app.[hash].css',
       allChunks: true
     }),
     new BrowserSyncPlugin( {

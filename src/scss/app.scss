@@ -1,11 +1,11 @@
 @charset 'utf-8';
 
 @import 'settings';
-@import 'override-settings';
+@import 'config/override-base-settings';
 @import 'foundation';
 @import 'motion-ui';
 
-$flex: true;
+$flex: false;
 $prototype: false;
 
 @if $flex {
@@ -71,6 +71,5 @@ $prototype: false;
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-body{
-  background: #999;
-}
+@import 'components/helpers';
+@import 'pages/demo';
