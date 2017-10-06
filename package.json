@@ -1,14 +1,24 @@
 {
-  "name": "webpack-starter",
-  "version": "1.0.0",
-  "description": "testing",
-  "main": "index.js",
+  "name": "foundation-six-pack",
+  "version": "1.0.2",
+  "title": "Foundation Six Pack",
+  "keywords": [
+    "Foundation Framework 6",
+    "Webpack 2"
+  ],
+  "description": "Foundation 6.4.3 compiled with Webpack and minimal plugins. No gulp, grunt, bower, etc.",
+  "main": "webpack.config.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack -d --watch",
     "prod": "NODE_ENV=production webpack -p --watch"
   },
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://developercafe.net",
+  "author": "Developer Cafe LLC",
+  "license": "DBAD",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/kimdcottrell/foundation-six-pack"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
