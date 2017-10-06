@@ -33,7 +33,7 @@ Still needs a bit of work, but it's compiling.
 
 2. run `git clone https://github.com/kimdcottrell/foundation-six-pack.git`
 
-3. create a `virtualhost` record in your webserver config that serves that directory as a local url (e.g. `~/Sites/foundation-six-pack` is accessible in your browser as `http://sixpack.local`)
+3. create a `virtualhost` record in your webserver config that serves the created `foundation-six-pack` directory as a local url (e.g. `~/Sites/foundation-six-pack` is accessible in your browser as `http://sixpack.local`)
 
 4. make sure you've edited your `hosts` file so that url actually works
 
