@@ -24,11 +24,16 @@ Still needs a bit of work, but it's compiling.
 
 ```
 git clone https://github.com/kimdcottrell/foundation-six-pack.git
+cd foundation-six-pack
 npm install
 npm run dev
 ```
 
-A new browser window should appear that shows you https://localhost:8080.
+A new browser window should appear that shows you http://localhost:8080.
+
+`./index.php` reflects what is initially seen on the page
+
+`./contact.php` reflects http://localhost:3000/contact.php
 
 # Commands
 ------
