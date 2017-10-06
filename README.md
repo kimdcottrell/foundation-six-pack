@@ -15,7 +15,7 @@ This solves a few problems from the [setup built into Foundation Zurb template](
 
 5. You can easily update Foundation in the future without hitting a mass of errors in your duplicated `_settings.scss` (refer to `/src/scss/config/_override-base-settings.scss` for more details)
 
-6. You can load individual Foundation javascript modules for individual pages, instead of loading all needed JS modules across all pages (refer to `/src/js/pages/contact.js` for an idea on how to)
+6. You can load individual Foundation javascript modules for individual pages, instead of loading all needed JS modules across all pages (refer to `/src/js/pages/contact.js` for an idea on how to). This reduces page load time by making the assets as compact as possible for each individual page
 
 Still needs a bit of work, but it's compiling.
 
