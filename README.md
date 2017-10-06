@@ -22,6 +22,13 @@ Still needs a bit of work, but it's compiling.
 # Get Started
 ------
 
+It's recommended that you use:
+
+- NPM version 5.3.0 (or higher) 
+- Node.js version 8.2.1 (or higher)
+
+Run the following commands:
+
 ```
 git clone https://github.com/kimdcottrell/foundation-six-pack.git
 cd foundation-six-pack
