@@ -1,5 +1,4 @@
 # What is this?
-------
 
 Foundation 6 compiled using webpack and working with browser-sync and .php files, instead of the usual gulp + 500 plugins + webpack setup that pretends you just write code with .html files.
 
@@ -20,7 +19,6 @@ This solves a few problems from the [setup built into Foundation Zurb template](
 Still needs a bit of work, but it's compiling.
 
 # Get Started
-------
 
 **Minimum requirements:**
 
@@ -58,7 +56,6 @@ A new browser window should appear that shows you http://localhost:3000.
 `./contact.php` reflects http://localhost:3000/contact.php
 
 # Commands
-------
 
 `npm run dev`
 
@@ -69,7 +66,6 @@ Runs webpack in development mode. TODO: detail what this is
 Runs webpack in production mode. TODO: Solve bug where UglifyJS errors on `contact.js`
 
 # TODO
-------
 
 1. Make production version create compressed assets (check `contact.[hash].js`)
 
@@ -80,14 +76,12 @@ Runs webpack in production mode. TODO: Solve bug where UglifyJS errors on `conta
 4. Sourcemaps?
 
 # Known bugs
-------
 
 1. UglifyJS errors on `contact.js`
 
 This will only occur when running `npm run prod`. Webpack should still create the file, just uncompressed
 
 # Justifying Plugins
-------
 
 1. `clean-webpack-plugin` instead of `rimraf`
 
