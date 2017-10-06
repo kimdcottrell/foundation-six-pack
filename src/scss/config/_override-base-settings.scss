@@ -2,9 +2,11 @@
 *
 * overrides the settings under ./node_modules/foundation-sites/scss/settings
 *
-* NOTE: by overriding them instead of importing all and altering, you can update
+* NOTE: by overriding them instead of copying all and pasting below, you can update
 * foundation via npm without having to redo all of your settings
 *
 **/
 
 $body-background: $white;
+$body-font-family: 'Open Sans', sans-serif;
+$custom-color: #ccc;

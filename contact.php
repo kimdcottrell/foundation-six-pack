@@ -1,8 +1,9 @@
 <?php require('inc/header.php') ?>
-  <h1>Contact Template</h1>
 
   <div class="row">
     <div class="columns">
+      <h1>Contact Template</h1>
+
       <form data-abide novalidate>
         <div data-abide-error class="alert callout" style="display: none;">
           <p><i class="fi-alert"></i> There are some errors in your form.</p>
@@ -91,5 +92,5 @@
       </form>
     </div>
   </div>
-  <script type="text/javascript" src="assets/<?php echo $manifest->{'contact.js'} ?>"></script><script type="text/javascript" src="dist/contact.cd7810e01bd28fd363ae.js"></script></body>
+  <script src="assets/<?php echo $manifest->{'contact.js'} ?>" async></script>
 <?php require('inc/footer.php') ?>

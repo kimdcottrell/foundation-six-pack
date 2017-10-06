@@ -1,24 +1,18 @@
-import $ from 'jquery';
-
-//-- BEGIN CORE FOUNDATION JS
-import { Foundation } from 'foundation-sites/js/foundation.core';
-import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.util.core';
-import { MediaQuery } from 'foundation-sites/js/foundation.util.mediaQuery'; // if this is not included, all below plugins break
-//-- END CORE FOUNDATION JS
+// TODO: clean this up and make it a reference file
 
 /**
 * -- BEGIN HIGHLY RECOMMENDED FOUNDATION JS
 * NOTE: Some plugins also require specific utility libraries that ship with
 * Foundation — refer to a plugin's documentation to find out which plugins require what
 **/
-// import { Box } from 'foundation-sites/js/foundation.util.box'
-// import { onImagesLoaded } from 'foundation-sites/js/foundation.util.imageLoader';
-// import { Keyboard } from 'foundation-sites/js/foundation.util.keyboard';
-// import { Motion, Move } from 'foundation-sites/js/foundation.util.motion';
-// import { Nest } from 'foundation-sites/js/foundation.util.nest';
-// import { Timer } from 'foundation-sites/js/foundation.util.timer';
-// import { Poke } from 'foundation-sites/js/foundation.util.touch';
-// import { Triggers } from 'foundation-sites/js/foundation.util.triggers';
+import { Box } from 'foundation-sites/js/foundation.util.box'
+import { onImagesLoaded } from 'foundation-sites/js/foundation.util.imageLoader';
+import { Keyboard } from 'foundation-sites/js/foundation.util.keyboard';
+import { Motion, Move } from 'foundation-sites/js/foundation.util.motion';
+import { Nest } from 'foundation-sites/js/foundation.util.nest';
+import { Timer } from 'foundation-sites/js/foundation.util.timer';
+import { Poke } from 'foundation-sites/js/foundation.util.touch';
+import { Triggers } from 'foundation-sites/js/foundation.util.triggers';
 //-- END HIGHLY RECOMMENDED FOUNDATION JS
 
 /**
@@ -27,35 +21,26 @@ import { MediaQuery } from 'foundation-sites/js/foundation.util.mediaQuery'; // 
 * required util(s) above
 **/
 import { Abide } from 'foundation-sites/js/foundation.abide';
-// import { Accordion } from 'foundation-sites/js/foundation.accordion';
-// import { AccordionMenu } from 'foundation-sites/js/foundation.accordionMenu';
-// import { Drilldown } from 'foundation-sites/js/foundation.drilldown';
-// import { Dropdown } from 'foundation-sites/js/foundation.dropdown';
-// import { DropdownMenu } from 'foundation-sites/js/foundation.dropdownMenu';
-// import { Equalizer } from 'foundation-sites/js/foundation.equalizer';
-// import { Interchange } from 'foundation-sites/js/foundation.interchange';
-// import { Magellan } from 'foundation-sites/js/foundation.magellan';
-// import { OffCanvas } from 'foundation-sites/js/foundation.offcanvas';
-// import { Orbit } from 'foundation-sites/js/foundation.orbit';
-// import { ResponsiveMenu } from 'foundation-sites/js/foundation.responsiveMenu';
-// import { ResponsiveToggle } from 'foundation-sites/js/foundation.responsiveToggle';
-// import { Reveal } from 'foundation-sites/js/foundation.reveal';
-// import { Slider } from 'foundation-sites/js/foundation.slider';
-// import { SmoothScroll } from 'foundation-sites/js/foundation.smoothScroll';
-// import { Sticky } from 'foundation-sites/js/foundation.sticky';
-// import { Tabs } from 'foundation-sites/js/foundation.tabs';
-// import { Toggler } from 'foundation-sites/js/foundation.toggler';
-// import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
-// import { ResponsiveAccordionTabs } from 'foundation-sites/js/foundation.responsiveAccordionTabs';
-
-Foundation.addToJquery($);
-
-// Add Foundation Utils to Foundation global namespace for backwards
-// compatibility.
-
-Foundation.rtl = rtl;
-Foundation.GetYoDigits = GetYoDigits;
-Foundation.transitionend = transitionend;
+import { Accordion } from 'foundation-sites/js/foundation.accordion';
+import { AccordionMenu } from 'foundation-sites/js/foundation.accordionMenu';
+import { Drilldown } from 'foundation-sites/js/foundation.drilldown';
+import { Dropdown } from 'foundation-sites/js/foundation.dropdown';
+import { DropdownMenu } from 'foundation-sites/js/foundation.dropdownMenu';
+import { Equalizer } from 'foundation-sites/js/foundation.equalizer';
+import { Interchange } from 'foundation-sites/js/foundation.interchange';
+import { Magellan } from 'foundation-sites/js/foundation.magellan';
+import { OffCanvas } from 'foundation-sites/js/foundation.offcanvas';
+import { Orbit } from 'foundation-sites/js/foundation.orbit';
+import { ResponsiveMenu } from 'foundation-sites/js/foundation.responsiveMenu';
+import { ResponsiveToggle } from 'foundation-sites/js/foundation.responsiveToggle';
+import { Reveal } from 'foundation-sites/js/foundation.reveal';
+import { Slider } from 'foundation-sites/js/foundation.slider';
+import { SmoothScroll } from 'foundation-sites/js/foundation.smoothScroll';
+import { Sticky } from 'foundation-sites/js/foundation.sticky';
+import { Tabs } from 'foundation-sites/js/foundation.tabs';
+import { Toggler } from 'foundation-sites/js/foundation.toggler';
+import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
+import { ResponsiveAccordionTabs } from 'foundation-sites/js/foundation.responsiveAccordionTabs';
 
 if( typeof MediaQuery != "undefined" ){ Foundation.MediaQuery = MediaQuery; }
 if( typeof Box != "undefined" ){ Foundation.Box = Box; }

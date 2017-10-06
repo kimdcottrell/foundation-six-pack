@@ -13,13 +13,14 @@ This solves a few problems from the [setup built into Foundation Zurb template](
 
 4. You no longer have to depend on the Foundation CLI - just write any command you want in `package.json` and run `npm run [your command here]`
 
-5. You can easily update foundation without hitting a mass of errors in your duplicated `_settings.scss` (refer to `/src/scss/config/_override-settings.scss` for more details)
+5. You can easily update Foundation in the future without hitting a mass of errors in your duplicated `_settings.scss` (refer to `/src/scss/config/_override-base-settings.scss` for more details)
 
-6. You can load individual Foundation javascript modules for individual pages, instead of loading all needed JS modules across all pages (refer to `/src/js/components/foundation-pieces.js` for an idea on how to)
+6. You can load individual Foundation javascript modules for individual pages, instead of loading all needed JS modules across all pages (refer to `/src/js/pages/contact.js` for an idea on how to)
 
 Still needs a bit of work, but it's compiling.
 
 # Get Started
+------
 
 ```
 git clone https://github.com/kimdcottrell/foundation-six-pack.git
@@ -30,6 +31,7 @@ npm run dev
 A new browser window should appear that shows you https://localhost:8080.
 
 # Commands
+------
 
 `npm run dev`
 
@@ -37,17 +39,25 @@ Runs webpack in development mode. TODO: detail what this is
 
 `npm run prod`
 
-Runs webpack in production mode. TODO: detail what this is
+Runs webpack in production mode. TODO: Solve bug where UglifyJS errors on `contact.js`
 
-# TODO:
+# TODO
+------
 
-1. Figure out bug with manifest plugin that is creating a corresponding stylesheet for every js entry
+1. Make production version create compressed assets (check `contact.[hash].js`)
 
-2. Make production version create compressed assets
+2. Add in images and fonts loader
 
-3. Add in images and fonts loader
+3. Check if hashing is done the correct way for production env
 
-4. Make more examples, especially some for \#5 and \#6 in "What is this?"
+4. Sourcemaps?
+
+# Known bugs
+------
+
+1. UglifyJS errors on `contact.js`
+
+This will only occur when running `npm run prod`. Webpack should still create the file, just uncompressed
 
 # Justifying Plugins
 ------

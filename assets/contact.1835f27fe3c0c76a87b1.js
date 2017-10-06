@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10325,6 +10325,38 @@ return jQuery;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var css = __webpack_require__(2); // you need this to get webpack to generate the css
+
+// import whatInput from 'what-input';
+
+window.$ = _jquery2.default;
+
+// import Foundation from 'foundation-sites';
+// If you want to pick and choose which modules to include, comment out the above and uncomment
+// the line below
+// import './components/foundation-pieces';
+
+// $(document).foundation();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10389,7 +10421,7 @@ function transitionend($elem){
 
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10634,613 +10666,55 @@ function parseStyleToObject(str) {
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _whatInput = __webpack_require__(4);
-
-var _whatInput2 = _interopRequireDefault(_whatInput);
-
-__webpack_require__(5);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var css = __webpack_require__(9); // you need this to get webpack to generate the css
-console.log('hello from app.js and working again');
-
-window.$ = _jquery2.default;
-
-// import Foundation from 'foundation-sites';
-// If you want to pick and choose which modules to include, comment out the above and uncomment
-// the line below
-
-
-(0, _jquery2.default)(document).foundation();
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
- * @version v5.0.2
- * @link https://github.com/ten1seven/what-input
- * @license MIT
- */
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(true)
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define("whatInput", [], factory);
-	else if(typeof exports === 'object')
-		exports["whatInput"] = factory();
-	else
-		root["whatInput"] = factory();
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	module.exports = function () {
-	  /*
-	   * variables
-	   */
-
-	  // cache document.documentElement
-	  var docElem = document.documentElement;
-
-	  // currently focused dom element
-	  var currentElement = null;
-
-	  // last used input type
-	  var currentInput = 'initial';
-
-	  // last used input intent
-	  var currentIntent = currentInput;
-
-	  // form input types
-	  var formInputs = ['input', 'select', 'textarea'];
-
-	  // empty array for holding callback functions
-	  var functionList = [];
-
-	  // list of modifier keys commonly used with the mouse and
-	  // can be safely ignored to prevent false keyboard detection
-	  var ignoreMap = [16, // shift
-	  17, // control
-	  18, // alt
-	  91, // Windows key / left Apple cmd
-	  93 // Windows menu / right Apple cmd
-	  ];
-
-	  // mapping of events to input types
-	  var inputMap = {
-	    keydown: 'keyboard',
-	    keyup: 'keyboard',
-	    mousedown: 'mouse',
-	    mousemove: 'mouse',
-	    MSPointerDown: 'pointer',
-	    MSPointerMove: 'pointer',
-	    pointerdown: 'pointer',
-	    pointermove: 'pointer',
-	    touchstart: 'touch'
-
-	    // boolean: true if touch buffer is active
-	  };var isBuffering = false;
-
-	  // boolean: true if the page is being scrolled
-	  var isScrolling = false;
-
-	  // store current mouse position
-	  var mousePos = {
-	    x: null,
-	    y: null
-
-	    // map of IE 10 pointer events
-	  };var pointerMap = {
-	    2: 'touch',
-	    3: 'touch', // treat pen like touch
-	    4: 'mouse'
-
-	    // check support for passive event listeners
-	  };var supportsPassive = false;
-
-	  try {
-	    var opts = Object.defineProperty({}, 'passive', {
-	      get: function get() {
-	        supportsPassive = true;
-	      }
-	    });
-
-	    window.addEventListener('test', null, opts);
-	  } catch (e) {}
-
-	  /*
-	   * set up
-	   */
-
-	  var setUp = function setUp() {
-	    // add correct mouse wheel event mapping to `inputMap`
-	    inputMap[detectWheel()] = 'mouse';
-
-	    addListeners();
-	    doUpdate('input');
-	    doUpdate('intent');
-	  };
-
-	  /*
-	   * events
-	   */
-
-	  var addListeners = function addListeners() {
-	    // `pointermove`, `MSPointerMove`, `mousemove` and mouse wheel event binding
-	    // can only demonstrate potential, but not actual, interaction
-	    // and are treated separately
-	    var options = supportsPassive ? { passive: true } : false;
-
-	    // pointer events (mouse, pen, touch)
-	    if (window.PointerEvent) {
-	      window.addEventListener('pointerdown', updateInput);
-	      window.addEventListener('pointermove', setIntent);
-	    } else if (window.MSPointerEvent) {
-	      window.addEventListener('MSPointerDown', updateInput);
-	      window.addEventListener('MSPointerMove', setIntent);
-	    } else {
-	      // mouse events
-	      window.addEventListener('mousedown', updateInput);
-	      window.addEventListener('mousemove', setIntent);
-
-	      // touch events
-	      if ('ontouchstart' in window) {
-	        window.addEventListener('touchstart', touchBuffer, options);
-	        window.addEventListener('touchend', touchBuffer);
-	      }
-	    }
-
-	    // mouse wheel
-	    window.addEventListener(detectWheel(), setIntent, options);
-
-	    // keyboard events
-	    window.addEventListener('keydown', updateInput);
-	    window.addEventListener('keyup', updateInput);
-
-	    // focus events
-	    window.addEventListener('focusin', setElement);
-	    window.addEventListener('focusout', clearElement);
-	  };
-
-	  // checks conditions before updating new input
-	  var updateInput = function updateInput(event) {
-	    // only execute if the touch buffer timer isn't running
-	    if (!isBuffering) {
-	      var eventKey = event.which;
-	      var value = inputMap[event.type];
-
-	      if (value === 'pointer') {
-	        value = pointerType(event);
-	      }
-
-	      var shouldUpdate = value === 'keyboard' && eventKey && ignoreMap.indexOf(eventKey) === -1 || value === 'mouse' || value === 'touch';
-
-	      if (currentInput !== value && shouldUpdate) {
-	        currentInput = value;
-	        doUpdate('input');
-	      }
-
-	      if (currentIntent !== value && shouldUpdate) {
-	        // preserve intent for keyboard typing in form fields
-	        var activeElem = document.activeElement;
-	        var notFormInput = activeElem && activeElem.nodeName && formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1;
-
-	        if (notFormInput) {
-	          currentIntent = value;
-	          doUpdate('intent');
-	        }
-	      }
-	    }
-	  };
-
-	  // updates the doc and `inputTypes` array with new input
-	  var doUpdate = function doUpdate(which) {
-	    docElem.setAttribute('data-what' + which, which === 'input' ? currentInput : currentIntent);
-
-	    fireFunctions(which);
-	  };
-
-	  // updates input intent for `mousemove` and `pointermove`
-	  var setIntent = function setIntent(event) {
-	    // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
-	    detectScrolling(event);
-
-	    // only execute if the touch buffer timer isn't running
-	    // or scrolling isn't happening
-	    if (!isBuffering && !isScrolling) {
-	      var value = inputMap[event.type];
-	      if (value === 'pointer') {
-	        value = pointerType(event);
-	      }
-
-	      if (currentIntent !== value) {
-	        currentIntent = value;
-	        doUpdate('intent');
-	      }
-	    }
-	  };
-
-	  var setElement = function setElement(event) {
-	    currentElement = event.target.nodeName.toLowerCase();
-	    docElem.setAttribute('data-whatelement', currentElement);
-
-	    if (event.target.classList && event.target.classList.length) {
-	      docElem.setAttribute('data-whatclasses', event.target.classList.toString().replace(' ', ','));
-	    }
-	  };
-
-	  var clearElement = function clearElement() {
-	    currentElement = null;
-
-	    docElem.removeAttribute('data-whatelement');
-	    docElem.removeAttribute('data-whatclasses');
-	  };
-
-	  // buffers touch events because they frequently also fire mouse events
-	  var touchBuffer = function touchBuffer(event) {
-	    if (event.type === 'touchstart') {
-	      isBuffering = false;
-
-	      // set the current input
-	      updateInput(event);
-	    } else {
-	      isBuffering = true;
-	    }
-	  };
-
-	  /*
-	   * utilities
-	   */
-
-	  var pointerType = function pointerType(event) {
-	    if (typeof event.pointerType === 'number') {
-	      return pointerMap[event.pointerType];
-	    } else {
-	      // treat pen like touch
-	      return event.pointerType === 'pen' ? 'touch' : event.pointerType;
-	    }
-	  };
-
-	  // detect version of mouse wheel event to use
-	  // via https://developer.mozilla.org/en-US/docs/Web/Events/wheel
-	  var detectWheel = function detectWheel() {
-	    var wheelType = void 0;
-
-	    // Modern browsers support "wheel"
-	    if ('onwheel' in document.createElement('div')) {
-	      wheelType = 'wheel';
-	    } else {
-	      // Webkit and IE support at least "mousewheel"
-	      // or assume that remaining browsers are older Firefox
-	      wheelType = document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
-	    }
-
-	    return wheelType;
-	  };
-
-	  // runs callback functions
-	  var fireFunctions = function fireFunctions(type) {
-	    for (var i = 0, len = functionList.length; i < len; i++) {
-	      if (functionList[i].type === type) {
-	        functionList[i].fn.call(undefined, type === 'input' ? currentInput : currentIntent);
-	      }
-	    }
-	  };
-
-	  // finds matching element in an object
-	  var objPos = function objPos(match) {
-	    for (var i = 0, len = functionList.length; i < len; i++) {
-	      if (functionList[i].fn === match) {
-	        return i;
-	      }
-	    }
-	  };
-
-	  var detectScrolling = function detectScrolling(event) {
-	    if (mousePos['x'] !== event.screenX || mousePos['y'] !== event.screenY) {
-	      isScrolling = false;
-
-	      mousePos['x'] = event.screenX;
-	      mousePos['y'] = event.screenY;
-	    } else {
-	      isScrolling = true;
-	    }
-	  };
-
-	  /*
-	   * init
-	   */
-
-	  // don't start script unless browser cuts the mustard
-	  // (also passes if polyfills are used)
-	  if ('addEventListener' in window && Array.prototype.indexOf) {
-	    setUp();
-	  }
-
-	  /*
-	   * api
-	   */
-
-	  return {
-	    // returns string: the current input type
-	    // opt: 'intent'|'input'
-	    // 'input' (default): returns the same value as the `data-whatinput` attribute
-	    // 'intent': includes `data-whatintent` value if it's different than `data-whatinput`
-	    ask: function ask(opt) {
-	      return opt === 'intent' ? currentIntent : currentInput;
-	    },
-
-	    // returns string: the currently focused element or null
-	    element: function element() {
-	      return currentElement;
-	    },
-
-	    // overwrites ignored keys with provided array
-	    ignoreKeys: function ignoreKeys(arr) {
-	      ignoreMap = arr;
-	    },
-
-	    // attach functions to input and intent "events"
-	    // funct: function to fire on change
-	    // eventType: 'input'|'intent'
-	    registerOnChange: function registerOnChange(fn, eventType) {
-	      functionList.push({
-	        fn: fn,
-	        type: eventType || 'input'
-	      });
-	    },
-
-	    unRegisterOnChange: function unRegisterOnChange(fn) {
-	      var position = objPos(fn);
-
-	      if (position) {
-	        functionList.splice(position, 1);
-	      }
-	    }
-	  };
-	}();
-
-/***/ })
-/******/ ])
-});
-;
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _jquery = __webpack_require__(0);
+__webpack_require__(1);
 
-var _jquery2 = _interopRequireDefault(_jquery);
+__webpack_require__(6);
 
-var _foundation = __webpack_require__(6);
+var _foundation = __webpack_require__(8);
 
-var _foundationUtil = __webpack_require__(1);
+Foundation.plugin(_foundation.Abide, 'Abide');
 
-var _foundationUtil2 = __webpack_require__(2);
+// bring in only the plugin we need
 
-var _foundation2 = __webpack_require__(7);
+module.exports = Foundation;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+$(document).foundation();
 
-// import { Accordion } from 'foundation-sites/js/foundation.accordion';
-// import { AccordionMenu } from 'foundation-sites/js/foundation.accordionMenu';
-// import { Drilldown } from 'foundation-sites/js/foundation.drilldown';
-// import { Dropdown } from 'foundation-sites/js/foundation.dropdown';
-// import { DropdownMenu } from 'foundation-sites/js/foundation.dropdownMenu';
-// import { Equalizer } from 'foundation-sites/js/foundation.equalizer';
-// import { Interchange } from 'foundation-sites/js/foundation.interchange';
-// import { Magellan } from 'foundation-sites/js/foundation.magellan';
-// import { OffCanvas } from 'foundation-sites/js/foundation.offcanvas';
-// import { Orbit } from 'foundation-sites/js/foundation.orbit';
-// import { ResponsiveMenu } from 'foundation-sites/js/foundation.responsiveMenu';
-// import { ResponsiveToggle } from 'foundation-sites/js/foundation.responsiveToggle';
-// import { Reveal } from 'foundation-sites/js/foundation.reveal';
-// import { Slider } from 'foundation-sites/js/foundation.slider';
-// import { SmoothScroll } from 'foundation-sites/js/foundation.smoothScroll';
-// import { Sticky } from 'foundation-sites/js/foundation.sticky';
-// import { Tabs } from 'foundation-sites/js/foundation.tabs';
-// import { Toggler } from 'foundation-sites/js/foundation.toggler';
-// import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
-// import { ResponsiveAccordionTabs } from 'foundation-sites/js/foundation.responsiveAccordionTabs';
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
 
-//-- BEGIN CORE FOUNDATION JS
-_foundation.Foundation.addToJquery(_jquery2.default);
+"use strict";
+
+
+var _foundation = __webpack_require__(7);
+
+var _foundationUtil = __webpack_require__(3);
+
+var _foundationUtil2 = __webpack_require__(4);
+
+// if this is not included, all below plugins break
+
+_foundation.Foundation.addToJquery($);
 
 // Add Foundation Utils to Foundation global namespace for backwards
 // compatibility.
 
-// if this is not included, all below plugins break
-//-- END CORE FOUNDATION JS
-
-/**
-* -- BEGIN HIGHLY RECOMMENDED FOUNDATION JS
-* NOTE: Some plugins also require specific utility libraries that ship with
-* Foundation — refer to a plugin's documentation to find out which plugins require what
-**/
-// import { Box } from 'foundation-sites/js/foundation.util.box'
-// import { onImagesLoaded } from 'foundation-sites/js/foundation.util.imageLoader';
-// import { Keyboard } from 'foundation-sites/js/foundation.util.keyboard';
-// import { Motion, Move } from 'foundation-sites/js/foundation.util.motion';
-// import { Nest } from 'foundation-sites/js/foundation.util.nest';
-// import { Timer } from 'foundation-sites/js/foundation.util.timer';
-// import { Poke } from 'foundation-sites/js/foundation.util.touch';
-// import { Triggers } from 'foundation-sites/js/foundation.util.triggers';
-//-- END HIGHLY RECOMMENDED FOUNDATION JS
-
-/**
-* -- BEGIN OPTIONAL FOUNDATION PLUGINS
-* NOTE: You only need to uncomment the ones you want to enable, and maybe their
-* required util(s) above
-**/
+//-- BEGIN CORE FOUNDATION JS
 _foundation.Foundation.rtl = _foundationUtil.rtl;
 _foundation.Foundation.GetYoDigits = _foundationUtil.GetYoDigits;
 _foundation.Foundation.transitionend = _foundationUtil.transitionend;
 
-if (typeof _foundationUtil2.MediaQuery != "undefined") {
-  _foundation.Foundation.MediaQuery = _foundationUtil2.MediaQuery;
-}
-if (typeof Box != "undefined") {
-  _foundation.Foundation.Box = Box;
-}
-if (typeof onImagesLoaded != "undefined") {
-  _foundation.Foundation.onImagesLoaded = onImagesLoaded;
-}
-if (typeof Keyboard != "undefined") {
-  _foundation.Foundation.Keyboard = Keyboard;
-}
-if (typeof Motion != "undefined") {
-  _foundation.Foundation.Motion = Motion;
-}
-if (typeof Move != "undefined") {
-  _foundation.Foundation.Move = Move;
-}
-if (typeof Nest != "undefined") {
-  _foundation.Foundation.Nest = Nest;
-}
-if (typeof Timer != "undefined") {
-  _foundation.Foundation.Timer = Timer;
-}
-
-// Poke and Triggers previously were almost purely sede effect driven,
-// so no // need to add it to Foundation, just init them.
-
-if (typeof Poke != "undefined") {
-  Poke.init(_jquery2.default);
-}
-if (typeof Triggers != "undefined") {
-  Triggers.init(_jquery2.default, _foundation.Foundation);
-}
-
-if (typeof _foundation2.Abide != "undefined") {
-  _foundation.Foundation.plugin(_foundation2.Abide, 'Abide');
-}
-if (typeof Accordion != "undefined") {
-  _foundation.Foundation.plugin(Accordion, 'Accordion');
-}
-if (typeof AccordionMenu != "undefined") {
-  _foundation.Foundation.plugin(AccordionMenu, 'AccordionMenu');
-}
-if (typeof Drilldown != "undefined") {
-  _foundation.Foundation.plugin(Drilldown, 'Drilldown');
-}
-if (typeof Dropdown != "undefined") {
-  _foundation.Foundation.plugin(Dropdown, 'Dropdown');
-}
-if (typeof DropdownMenu != "undefined") {
-  _foundation.Foundation.plugin(DropdownMenu, 'DropdownMenu');
-}
-if (typeof Equalizer != "undefined") {
-  _foundation.Foundation.plugin(Equalizer, 'Equalizer');
-}
-if (typeof Interchange != "undefined") {
-  _foundation.Foundation.plugin(Interchange, 'Interchange');
-}
-if (typeof Magellan != "undefined") {
-  _foundation.Foundation.plugin(Magellan, 'Magellan');
-}
-if (typeof OffCanvas != "undefined") {
-  _foundation.Foundation.plugin(OffCanvas, 'OffCanvas');
-}
-if (typeof Orbit != "undefined") {
-  _foundation.Foundation.plugin(Orbit, 'Orbit');
-}
-if (typeof ResponsiveMenu != "undefined") {
-  _foundation.Foundation.plugin(ResponsiveMenu, 'ResponsiveMenu');
-}
-if (typeof ResponsiveToggle != "undefined") {
-  _foundation.Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
-}
-if (typeof Reveal != "undefined") {
-  _foundation.Foundation.plugin(Reveal, 'Reveal');
-}
-if (typeof Slider != "undefined") {
-  _foundation.Foundation.plugin(Slider, 'Slider');
-}
-if (typeof SmoothScroll != "undefined") {
-  _foundation.Foundation.plugin(SmoothScroll, 'SmoothScroll');
-}
-if (typeof Sticky != "undefined") {
-  _foundation.Foundation.plugin(Sticky, 'Sticky');
-}
-if (typeof Tabs != "undefined") {
-  _foundation.Foundation.plugin(Tabs, 'Tabs');
-}
-if (typeof Toggler != "undefined") {
-  _foundation.Foundation.plugin(Toggler, 'Toggler');
-}
-if (typeof Tooltip != "undefined") {
-  _foundation.Foundation.plugin(Tooltip, 'Tooltip');
-}
-if (typeof ResponsiveAccordionTabs != "undefined") {
-  _foundation.Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
-}
-
 module.exports = _foundation.Foundation;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11248,8 +10722,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Foundation", function() { return Foundation; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation_util_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation_util_mediaQuery__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation_util_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation_util_mediaQuery__ = __webpack_require__(4);
 
 
 
@@ -11590,7 +11064,7 @@ function hyphenate(str) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11598,7 +11072,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Abide", function() { return Abide; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation_plugin__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation_plugin__ = __webpack_require__(9);
 
 
 
@@ -12189,14 +11663,14 @@ Abide.defaults = {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Plugin; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation_util_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation_util_core__ = __webpack_require__(3);
 
 
 
@@ -12252,21 +11726,6 @@ function getPluginName(obj) {
 
 
 
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(3);
 
 /***/ })
 /******/ ]);
