@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'assets'),
     filename: '[name].[hash].js'
-    //use [chunkhash] for prod config, app.[hash].js for dev
+    //TODO: use [chunkhash] for prod config, app.[hash].js for dev
   },
   module: {
     rules: [
