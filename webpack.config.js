@@ -4,7 +4,8 @@ const BrowserSyncPlugin       = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin      = require('clean-webpack-plugin')
 const path                    = require('path');
 
-var isProd = process.env.NODE_ENV === 'production'; // true of false
+var isProd                    = process.env.NODE_ENV === 'production'; // true of false
+var localDomain               = 'http://webpack.huzzah';
 
 module.exports = {
   entry: {
@@ -66,7 +67,7 @@ module.exports = {
       allChunks: true
     }),
     new BrowserSyncPlugin( {
-        proxy: 'http://webpack.huzzah',
+        proxy: localDomain,
         files: [
             '**/*.php'
         ],

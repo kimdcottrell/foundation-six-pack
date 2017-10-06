@@ -22,23 +22,34 @@ Still needs a bit of work, but it's compiling.
 # Get Started
 ------
 
-It's recommended that you use:
+**Minimum requirements:**
 
-- NPM version 5.3.0 (or higher) 
+- NPM version 5.3.0 (or higher)
 - Node.js version 8.2.1 (or higher)
+- PHP
+- A webserver (apache, ngnix)
 
-This is also assuming you can run a webserver locally on your machine, and run .php files. 
+**Get Setup**:
 
-Run the following commands:
+1. navigate to your local web-accessible directories
 
+2. run `git clone https://github.com/kimdcottrell/foundation-six-pack.git`
+
+3. create a `virtualhost` record in your webserver config that serves that directory as a local url (e.g. `~/Sites/foundation-six-pack` is accessible in your browser as `http://sixpack.local`)
+
+4. make sure you've edited your `hosts` file so that url actually works
+
+5. Then Run the following commands:
 ```
-git clone https://github.com/kimdcottrell/foundation-six-pack.git
 cd foundation-six-pack
 npm install
-npm run dev
 ```
 
-A new browser window should appear that shows you http://localhost:3000.
+6. In `webpack.config.js`, edit the `localDomain` variable to be the local domain you've setup for this
+
+7. Run `npm run dev`
+
+AND YOU'RE DONE! A new browser window should appear that shows you http://localhost:3000.
 
 `./index.php` reflects what is initially seen on the page
 
