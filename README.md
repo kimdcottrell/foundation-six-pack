@@ -29,7 +29,7 @@ npm install
 npm run dev
 ```
 
-A new browser window should appear that shows you http://localhost:8080.
+A new browser window should appear that shows you http://localhost:3000.
 
 `./index.php` reflects what is initially seen on the page
 
