@@ -49,7 +49,9 @@ npm install
 
 7. Run `npm run dev`
 
-AND YOU'RE DONE! A new browser window should appear that shows you http://localhost:3000.
+**And we're done!**
+
+A new browser window should appear that shows you http://localhost:3000.
 
 `./index.php` reflects what is initially seen on the page
 
